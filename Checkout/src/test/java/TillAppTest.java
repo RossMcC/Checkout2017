@@ -115,7 +115,6 @@ public class TillAppTest {
 	@Test
 	public void priceOfThreeOrangesIsFiftyPenceWithThreeForPriceOfTwo() {
 		// arrange
-		List<String> items = new ArrayList<String>();
 		items.add(orange);
 		items.add(orange);
 		items.add(orange);
