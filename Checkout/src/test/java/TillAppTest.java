@@ -111,4 +111,18 @@ public class TillAppTest {
 		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
+	
+	@Test
+	public void priceOfThreeOrangesIsFiftyPenceWithThreeForPriceOfTwo() {
+		// arrange
+		List<String> items = new ArrayList<String>();
+		items.add(orange);
+		items.add(orange);
+		items.add(orange);
+		expectedVal = 0.50;
+		// act
+		sum = tillApp.total(items);
+		// assert
+		assertEquals(expectedVal, sum, accuracy);
+	}
 }
