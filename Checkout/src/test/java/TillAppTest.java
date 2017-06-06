@@ -125,4 +125,35 @@ public class TillAppTest {
 		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
+	
+	@Test
+	public void priceOfSixOrangesIsOnePoundWithThreeForPriceOfTwo() {
+		// arrange
+		items.add(orange);
+		items.add(orange);
+		items.add(orange);
+		items.add(orange);
+		items.add(orange);
+		items.add(orange);
+		expectedVal = 1.00;
+		// act
+		sum = tillApp.total(items);
+		// assert
+		assertEquals(expectedVal, sum, accuracy);
+	}
+	
+	@Test
+	public void priceOfTwoApplesAndThreeOrangesIsOnePoundTenPence(){
+		// arrange
+		items.add(orange);
+		items.add(orange);
+		items.add(orange);
+		items.add(apple);
+		items.add(apple);
+		expectedVal = 1.10;
+		// act
+		sum = tillApp.total(items);
+		// assert
+		assertEquals(expectedVal, sum, accuracy);
+	}
 }

@@ -12,6 +12,7 @@ public class TillApp {
 	final static String apple = "Apple";
 	private final static Logger LOGGER = Logger.getLogger("till");
 	private int numberOfApples = 0;
+	private int numberOfOranges = 0;
 
 	public double total(List<String> items) {
 		LOGGER.log(Level.INFO, "Starting till");
@@ -20,8 +21,8 @@ public class TillApp {
 			if (item.equals(apple)) {
 				LOGGER.log(Level.INFO, "Adding price of apple to total");
 				total += applePrice;
-				numberOfApples +=1;
-				if(numberOfApples == 2){
+				numberOfApples += 1;
+				if (numberOfApples == 2) {
 					LOGGER.log(Level.INFO, "Buy One Get One Free on Apples");
 					total -= applePrice;
 					numberOfApples = 0;
@@ -30,6 +31,12 @@ public class TillApp {
 			if (item.equals(orange)) {
 				LOGGER.log(Level.INFO, "Adding price of orange to total");
 				total += orangePrice;
+				numberOfOranges += 1;
+				if (numberOfOranges == 3) {
+					LOGGER.log(Level.INFO, "Three for the price of two on Oranges");
+					total -= orangePrice;
+					numberOfOranges = 0;
+				}
 			}
 		}
 		LOGGER.log(Level.INFO, "Returning total of £" + total);
