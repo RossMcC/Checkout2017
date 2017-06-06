@@ -13,7 +13,7 @@ public class TillAppTest {
 	private TillApp tillApp = new TillApp();
 	private final String apple = "Apple";
 	private final String orange = "Orange";
-	private final double accuracy = 0.001;
+	private final double accuracy = 0.01;
 	private double expectedVal;
 	private double sum;
 	private List<String> items;
@@ -30,18 +30,6 @@ public class TillAppTest {
 		// arrange
 		items.add(apple);
 		expectedVal = 0.60;
-		// act
-		sum = tillApp.total(items);
-		// assert
-		assertEquals(expectedVal, sum, accuracy);
-	}
-
-	@Test
-	public void priceOfTwoApplesIsOneTwentyTest() {
-		// arrange
-		items.add(apple);
-		items.add(apple);
-		expectedVal = 1.20;
 		// act
 		sum = tillApp.total(items);
 		// assert
@@ -83,19 +71,30 @@ public class TillAppTest {
 		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
-	
+
 	@Test
-	public void ThreeOrangesAndAnOrangePriceIsTwoPoundsAndFivePence(){
+	public void ThreeOrangesAndAnOrangePriceIsOnePoundAndFortyFivePence() {
 		// arrange
 		items.add(apple);
 		items.add(apple);
 		items.add(orange);
 		items.add(apple);
-		expectedVal = 2.05;
+		expectedVal = 1.45;
 		// act
 		sum = tillApp.total(items);
 		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
 
+	@Test
+	public void TwoApplesHaveBuyOneGetOneFree(){
+		// arrange
+		items.add(apple);
+		items.add(apple);
+		expectedVal = 0.60;
+		// act
+		sum = tillApp.total(items);
+		// assert
+		assertEquals(expectedVal, sum, accuracy);
+	}
 }
