@@ -17,24 +17,25 @@ public class TillAppTest {
 	private double expectedVal;
 	private double sum;
 	private List<String> items;
+
 	@Before
-	public void setup(){
-	items = new ArrayList<String>();
-	expectedVal = 0;
-	sum = 0;
+	public void setup() {
+		items = new ArrayList<String>();
+		expectedVal = 0;
+		sum = 0;
 	}
-	
+
 	@Test
 	public void priceOfAnAppleIsSixtyTest() {
 		// arrange
 		items.add(apple);
 		expectedVal = 0.60;
 		// act
-		double sum = tillApp.total(items);
+		sum = tillApp.total(items);
 		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
-	
+
 	@Test
 	public void priceOfTwoApplesIsOneTwentyTest() {
 		// arrange
@@ -44,12 +45,11 @@ public class TillAppTest {
 		// act
 		sum = tillApp.total(items);
 		// assert
-		
 		assertEquals(expectedVal, sum, accuracy);
 	}
-	
+
 	@Test
-	public void priceOfAnOrangeIsTwentyFivePence(){
+	public void priceOfAnOrangeIsTwentyFivePence() {
 		// arrange
 		items.add(orange);
 		expectedVal = 0.25;
@@ -58,9 +58,9 @@ public class TillAppTest {
 		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
-	
+
 	@Test
-	public void priceOfTwoOrangesIsFiftyPence(){
+	public void priceOfTwoOrangesIsFiftyPence() {
 		// arrange
 		List<String> items = new ArrayList<String>();
 		items.add(orange);
@@ -69,20 +69,33 @@ public class TillAppTest {
 		// act
 		sum = tillApp.total(items);
 		// assert
-		assertEquals(expectedVal, sum, 0.001);
+		assertEquals(expectedVal, sum, accuracy);
 	}
-	
+
 	@Test
-	public void priceOfAnOrangeAndAnAppleIsEightyPence(){
+	public void priceOfAnOrangeAndAnAppleIsEightyPence() {
 		// arrange
-		List<String> items = new ArrayList<String>();
 		items.add(orange);
 		items.add(apple);
 		expectedVal = 0.85;
 		// act
-		double sum = tillApp.total(items);
+		sum = tillApp.total(items);
 		// assert
-		assertEquals(expectedVal, sum, 0.001);
+		assertEquals(expectedVal, sum, accuracy);
+	}
+	
+	@Test
+	public void ThreeOrangesAndAnOrangePriceIsTwoPoundsAndFivePence(){
+		// arrange
+		items.add(apple);
+		items.add(apple);
+		items.add(orange);
+		items.add(apple);
+		expectedVal = 2.05;
+		// act
+		sum = tillApp.total(items);
+		// assert
+		assertEquals(expectedVal, sum, accuracy);
 	}
 
 }
