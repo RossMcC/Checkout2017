@@ -12,13 +12,39 @@ public class TillAppTest {
 
 	private TillApp tillApp = new TillApp();
 	private final String apple = "Apple";
+	private final String orange = "Orange";
 
 	@Test
-	public void priceOfAnApplesIsSixtyTest() {
+	public void priceOfAnAppleIsSixtyTest() {
 		// arrange
 		List<String> items = new ArrayList<String>();
 		items.add(apple);
 		double expectedVal = 0.60;
+		// act
+		double sum = tillApp.total(items);
+		// assert
+		assertEquals(expectedVal, sum, 0.001);
+	}
+	
+	@Test
+	public void priceOfTwoApplesIsOneTwentyTest() {
+		// arrange
+		List<String> items = new ArrayList<String>();
+		items.add(apple);
+		items.add(apple);
+		double expectedVal = 1.20;
+		// act
+		double sum = tillApp.total(items);
+		// assert
+		assertEquals(expectedVal, sum, 0.001);
+	}
+	
+	@Test
+	public void priceOfAnOrangeIsTwentyFivePence(){
+		// arrange
+		List<String> items = new ArrayList<String>();
+		items.add(orange);
+		double expectedVal = 0.25;
 		// act
 		double sum = tillApp.total(items);
 		// assert
