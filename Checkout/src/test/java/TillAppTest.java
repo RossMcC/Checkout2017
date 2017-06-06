@@ -97,4 +97,18 @@ public class TillAppTest {
 		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
+	
+	@Test
+	public void FourApplesHaveBuyOneGetOneFree(){
+		// arrange
+		items.add(apple);
+		items.add(apple);
+		items.add(apple);
+		items.add(apple);
+		expectedVal = 1.20;
+		// act
+		sum = tillApp.total(items);
+		// assert
+		assertEquals(expectedVal, sum, accuracy);
+	}
 }

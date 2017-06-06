@@ -24,6 +24,7 @@ public class TillApp {
 				if(numberOfApples == 2){
 					LOGGER.log(Level.INFO, "Buy One Get One Free on Apples");
 					total -= applePrice;
+					numberOfApples = 0;
 				}
 			}
 			if (item.equals(orange)) {
