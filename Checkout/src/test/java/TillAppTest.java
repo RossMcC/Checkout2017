@@ -50,5 +50,31 @@ public class TillAppTest {
 		// assert
 		assertEquals(expectedVal, sum, 0.001);
 	}
+	
+	@Test
+	public void priceOfTwoOrangesIsFiftyPence(){
+		// arrange
+		List<String> items = new ArrayList<String>();
+		items.add(orange);
+		items.add(orange);
+		double expectedVal = 0.50;
+		// act
+		double sum = tillApp.total(items);
+		// assert
+		assertEquals(expectedVal, sum, 0.001);
+	}
+	
+	@Test
+	public void priceOfAnOrangeAndAnAppleIsEightyPence(){
+		// arrange
+		List<String> items = new ArrayList<String>();
+		items.add(orange);
+		items.add(apple);
+		double expectedVal = 0.85;
+		// act
+		double sum = tillApp.total(items);
+		// assert
+		assertEquals(expectedVal, sum, 0.001);
+	}
 
 }
