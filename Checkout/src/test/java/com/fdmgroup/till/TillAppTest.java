@@ -1,11 +1,12 @@
 package test.java.com.fdmgroup.till;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import org.junit.*;
 
 import main.java.com.fdmgroup.till.TillApp;
 
