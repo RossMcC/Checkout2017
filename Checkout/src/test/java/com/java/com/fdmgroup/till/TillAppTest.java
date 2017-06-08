@@ -1,15 +1,14 @@
-package main.java.com.fdmgroup.till;
-
-import static org.junit.Assert.*;
+package test.java.com.java.com.fdmgroup.till;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.*;
 
-import test.java.com.java.com.fdmgroup.till.TillApp;
+import junit.framework.TestCase;
+import main.java.com.fdmgroup.till.TillApp;
 
-public class TillAppTest {
+public class TillAppTest extends TestCase {
 
 	private TillApp tillApp;
 	private String apple;

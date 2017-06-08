@@ -1,4 +1,4 @@
-package test.java.com.java.com.fdmgroup.till;
+package main.java.com.fdmgroup.till;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
