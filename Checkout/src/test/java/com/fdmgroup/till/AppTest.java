@@ -1,4 +1,4 @@
-package test.java.com.java.com.fdmgroup.till;
+package test.java.com.fdmgroup.till;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

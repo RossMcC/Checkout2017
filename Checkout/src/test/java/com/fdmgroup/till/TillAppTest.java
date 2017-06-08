@@ -1,14 +1,15 @@
-package test.java.com.java.com.fdmgroup.till;
+package test.java.com.fdmgroup.till;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
 import org.junit.*;
 
-import junit.framework.TestCase;
 import main.java.com.fdmgroup.till.TillApp;
 
-public class TillAppTest extends TestCase {
+public class TillAppTest {
 
 	private TillApp tillApp;
 	private String apple;
@@ -21,9 +22,9 @@ public class TillAppTest extends TestCase {
 	@Before
 	public void testSetup() {
 		tillApp = new TillApp();
-		accuracy= 0.001;
-		apple="Apple";
-		orange="Orange";
+		accuracy = 0.001;
+		apple = "Apple";
+		orange = "Orange";
 		items = new ArrayList<String>();
 		expectedVal = 0;
 		sum = 0;
@@ -76,16 +77,16 @@ public class TillAppTest extends TestCase {
 	}
 
 	@Test
-	public void testTwoApplesHaveBuyOneGetOneFree(){
+	public void testTwoApplesHaveBuyOneGetOneFree() {
 		items.add(apple);
 		items.add(apple);
 		expectedVal = 0.60;
 		sum = tillApp.total(items);
 		assertEquals(expectedVal, sum, accuracy);
 	}
-	
+
 	@Test
-	public void testFourApplesHaveBuyOneGetOneFree(){
+	public void testFourApplesHaveBuyOneGetOneFree() {
 		items.add(apple);
 		items.add(apple);
 		items.add(apple);
@@ -94,7 +95,7 @@ public class TillAppTest extends TestCase {
 		sum = tillApp.total(items);
 		assertEquals(expectedVal, sum, accuracy);
 	}
-	
+
 	@Test
 	public void testPriceOfThreeOrangesIsFiftyPenceWithThreeForPriceOfTwo() {
 		// arrange
@@ -107,7 +108,7 @@ public class TillAppTest extends TestCase {
 		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
-	
+
 	@Test
 	public void testPriceOfSixOrangesIsOnePoundWithThreeForPriceOfTwo() {
 		// arrange
@@ -123,9 +124,9 @@ public class TillAppTest extends TestCase {
 		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
-	
+
 	@Test
-	public void testPriceOfTwoApplesAndThreeOrangesIsOnePoundTenPence(){
+	public void testPriceOfTwoApplesAndThreeOrangesIsOnePoundTenPence() {
 		// arrange
 		items.add(orange);
 		items.add(orange);
