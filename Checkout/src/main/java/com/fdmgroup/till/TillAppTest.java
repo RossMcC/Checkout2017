@@ -1,6 +1,5 @@
-package test.java;
+package main.java.com.fdmgroup.till;
 
-import main.java.com.fdmgroup.till.TillApp;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -8,112 +7,97 @@ import java.util.List;
 
 import org.junit.*;
 
+import test.java.com.java.com.fdmgroup.till.TillApp;
+
 public class TillAppTest {
 
-	private TillApp tillApp = new TillApp();
-	private final String apple = "Apple";
-	private final String orange = "Orange";
-	private final double accuracy = 0.01;
+	private TillApp tillApp;
+	private String apple;
+	private String orange;
+	private double accuracy;
 	private double expectedVal;
 	private double sum;
 	private List<String> items;
 
 	@Before
-	public void setup() {
+	public void testSetup() {
+		tillApp = new TillApp();
+		accuracy= 0.001;
+		apple="Apple";
+		orange="Orange";
 		items = new ArrayList<String>();
 		expectedVal = 0;
 		sum = 0;
 	}
 
 	@Test
-	public void priceOfAnAppleIsSixtyTest() {
-		// arrange
+	public void testPriceOfAnAppleIsSixtyTest() {
 		items.add(apple);
 		expectedVal = 0.60;
-		// act
 		sum = tillApp.total(items);
-		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
 
 	@Test
-	public void priceOfAnOrangeIsTwentyFivePence() {
-		// arrange
+	public void testPriceOfAnOrangeIsTwentyFivePence() {
 		items.add(orange);
 		expectedVal = 0.25;
-		// act
 		sum = tillApp.total(items);
-		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
 
 	@Test
-	public void priceOfTwoOrangesIsFiftyPence() {
-		// arrange
+	public void testPriceOfTwoOrangesIsFiftyPence() {
 		List<String> items = new ArrayList<String>();
 		items.add(orange);
 		items.add(orange);
 		expectedVal = 0.50;
-		// act
 		sum = tillApp.total(items);
-		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
 
 	@Test
-	public void priceOfAnOrangeAndAnAppleIsEightyPence() {
-		// arrange
+	public void testPriceOfAnOrangeAndAnAppleIsEightyPence() {
 		items.add(orange);
 		items.add(apple);
 		expectedVal = 0.85;
-		// act
 		sum = tillApp.total(items);
-		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
 
 	@Test
-	public void ThreeOrangesAndAnOrangePriceIsOnePoundAndFortyFivePence() {
-		// arrange
+	public void testThreeOrangesAndAnOrangePriceIsOnePoundAndFortyFivePence() {
 		items.add(apple);
 		items.add(apple);
 		items.add(orange);
 		items.add(apple);
 		expectedVal = 1.45;
-		// act
 		sum = tillApp.total(items);
-		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
 
 	@Test
-	public void TwoApplesHaveBuyOneGetOneFree(){
-		// arrange
+	public void testTwoApplesHaveBuyOneGetOneFree(){
 		items.add(apple);
 		items.add(apple);
 		expectedVal = 0.60;
-		// act
 		sum = tillApp.total(items);
-		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
 	
 	@Test
-	public void FourApplesHaveBuyOneGetOneFree(){
-		// arrange
+	public void testFourApplesHaveBuyOneGetOneFree(){
 		items.add(apple);
 		items.add(apple);
 		items.add(apple);
 		items.add(apple);
 		expectedVal = 1.20;
-		// act
 		sum = tillApp.total(items);
-		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
 	
 	@Test
-	public void priceOfThreeOrangesIsFiftyPenceWithThreeForPriceOfTwo() {
+	public void testPriceOfThreeOrangesIsFiftyPenceWithThreeForPriceOfTwo() {
 		// arrange
 		items.add(orange);
 		items.add(orange);
@@ -126,7 +110,7 @@ public class TillAppTest {
 	}
 	
 	@Test
-	public void priceOfSixOrangesIsOnePoundWithThreeForPriceOfTwo() {
+	public void testPriceOfSixOrangesIsOnePoundWithThreeForPriceOfTwo() {
 		// arrange
 		items.add(orange);
 		items.add(orange);
@@ -142,7 +126,7 @@ public class TillAppTest {
 	}
 	
 	@Test
-	public void priceOfTwoApplesAndThreeOrangesIsOnePoundTenPence(){
+	public void testPriceOfTwoApplesAndThreeOrangesIsOnePoundTenPence(){
 		// arrange
 		items.add(orange);
 		items.add(orange);
