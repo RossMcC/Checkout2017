@@ -41,6 +41,27 @@ public class TillAppTest {
 	}
 	
 	@Test
+	public void testApplePriceCanBeChangedWithContrsuctor(){
+		double applePrice = 0.75;
+		TillApp appleTill = new TillApp(applePrice,0.25);
+		items.add(apple);
+		expectedVal = 0.75;
+		sum = appleTill.total(items);
+		assertEquals(expectedVal, sum, accuracy);
+	}
+	
+	@Test
+	public void testOrangePriceCanBeChangedWithContrsuctor(){
+		double orangePrice = 0.80;
+		TillApp orangeTill = new TillApp(0.60,orangePrice);
+		items.add(orange);
+		expectedVal = 0.80;
+		sum = orangeTill.total(items);
+		assertEquals(expectedVal, sum, accuracy);
+	}
+
+	
+	@Test
 	public void testToVerifyIfSomethingUnregognisedIsPassedInItReturnsCurrentTotal() {
 		items.add(apple);
 		items.add(orange);
