@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -30,11 +31,35 @@ public class TillAppTest {
 		expectedVal = 0;
 		sum = 0;
 	}
-
+	
 	@Test
-	public void testPriceOfAnAppleIsSixtyTest() {
+	public void testPriceOfAnAppleIsSixtyPence() {
 		items.add(apple);
 		expectedVal = 0.60;
+		sum = tillApp.total(items);
+		assertEquals(expectedVal, sum, accuracy);
+	}
+	
+	@Test
+	public void testToVerifyIfSomethingUnregognisedIsPassedInItReturnsCurrentTotal() {
+		items.add(apple);
+		items.add(orange);
+		items.add("Koala");
+		items.add(apple);
+		items.add(orange);
+		expectedVal = 0.85;
+		sum = tillApp.total(items);
+		assertEquals(expectedVal, sum, accuracy);
+	}
+	
+	@Test
+	public void testToVerifyIfAnEmptyStringIsPassedInItReturnsCurrentTotal() {
+		items.add(apple);
+		items.add(orange);
+		items.add("");
+		items.add(apple);
+		items.add(orange);
+		expectedVal = 0.85;
 		sum = tillApp.total(items);
 		assertEquals(expectedVal, sum, accuracy);
 	}
@@ -99,20 +124,16 @@ public class TillAppTest {
 
 	@Test
 	public void testPriceOfThreeOrangesIsFiftyPenceWithThreeForPriceOfTwo() {
-		// arrange
 		items.add(orange);
 		items.add(orange);
 		items.add(orange);
 		expectedVal = 0.50;
-		// act
 		sum = tillApp.total(items);
-		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
 
 	@Test
 	public void testPriceOfSixOrangesIsOnePoundWithThreeForPriceOfTwo() {
-		// arrange
 		items.add(orange);
 		items.add(orange);
 		items.add(orange);
@@ -120,24 +141,19 @@ public class TillAppTest {
 		items.add(orange);
 		items.add(orange);
 		expectedVal = 1.00;
-		// act
 		sum = tillApp.total(items);
-		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
 
 	@Test
 	public void testPriceOfTwoApplesAndThreeOrangesIsOnePoundTenPence() {
-		// arrange
 		items.add(orange);
 		items.add(orange);
 		items.add(orange);
 		items.add(apple);
 		items.add(apple);
 		expectedVal = 1.10;
-		// act
 		sum = tillApp.total(items);
-		// assert
 		assertEquals(expectedVal, sum, accuracy);
 	}
 }

@@ -18,16 +18,22 @@ public class TillApp {
 	private int numberOfOranges = 0;
 
 	public double total(List<String> items) {
+		NumberFormat formatter = new DecimalFormat("#0.00");
 		double total = 0;
 		for (String item : items) {
 			if (item.equals(apple)) {
 				total = addApple(total);
 			}
-			if (item.equals(orange)) {
+			else if (item.equals(orange)) {
 				total = addOrange(total);
 			}
+			else {
+				LOGGER.error("One or more items are not recognised");
+				LOGGER.error("Returning current total of £" + formatter.format(total));
+				return total;
+			}
 		}
-		NumberFormat formatter = new DecimalFormat("#0.00");
+		
 		LOGGER.info("Returning total of £" + formatter.format(total));
 		return total;
 	}
